@@ -16,7 +16,7 @@
   "author": "UNSW Redback Racing",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.19.2",
     "cors": "^2.8.5",
     "express": "^5.0.0-alpha.8",
     "node-fetch": "^3.2.1"
