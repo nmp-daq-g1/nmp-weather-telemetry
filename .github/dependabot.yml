@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/server"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "lhjt"
+  - package-ecosystem: "npm"
+    directory: "/ui"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "lhjt"
+  - package-ecosystem: "npm"
+    directory: "/emulator"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "lhjt"
+  # - package-ecosystem: "github-actions"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "daily"
+  #   reviewers:
+  #     - "lhjt"
