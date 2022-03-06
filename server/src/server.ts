@@ -1,4 +1,8 @@
-import express, { NextFunction, Request, Response } from "express";
+import express, {
+    NextFunction,
+    Request as ExpressRequest,
+    Response as ExpressResponse,
+} from "express";
 import cors from "cors";
 import dgram from "dgram";
 import { Buffer } from "buffer";
@@ -36,12 +40,19 @@ api.get("/api/stop", async (req, res) => {
 });
 
 // Error handler
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-api.use((err: HttpError, req: Request, res: Response, _next: NextFunction) => {
-    console.error(err.stack);
-    const status = err.status || 500;
-    res.status(status).send(err.message);
-});
+api.use(
+    (
+        err: HttpError,
+        req: ExpressRequest,
+        res: ExpressResponse,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        next: NextFunction,
+    ) => {
+        console.error(err.stack);
+        const status = err.status || 500;
+        res.status(status).send(err.message);
+    },
+);
 
 // ----------------- Set up a UDP socket -----------------
 const socket = dgram.createSocket("udp4");
