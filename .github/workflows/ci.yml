@@ -3,23 +3,16 @@ name: CI
 on: [push]
 
 jobs:
-  ui:
-    name: Lint (ui)
+  lint:
+    name: Lint (${{ matrix.component }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        component: [ui, server]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
           node-version: "17"
-      - run: npm --prefix ui install
-      - run: npm run --prefix ui lint:ci
-  server:
-    name: Lint (server)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "17"
-      - run: npm --prefix server install
-      - run: npm run --prefix server lint
+      - run: npm --prefix ${{ matrix.component }} install
+      - run: npm run --prefix ${{ matrix.component }} lint
