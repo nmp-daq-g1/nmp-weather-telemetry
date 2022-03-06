@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint:
+    name: Lint (ui)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+      - run: npm --prefix ui install
+      - run: npm run --prefix ui lint:ci
