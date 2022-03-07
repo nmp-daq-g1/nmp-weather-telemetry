@@ -8,7 +8,7 @@ import dgram from "dgram";
 import { Buffer } from "buffer";
 import HttpError from "./httpError";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-import { generate_weather_data } from "../../emulator/src/weather_output";
+import { sanitised_data } from "../src/data_sanitise";
 
 const HOSTNAME = "localhost";
 const API_PORT = 8000;
@@ -31,11 +31,13 @@ api.get("/", async (req, res) => {
 
 api.get("/api/start", async (req, res) => {
     const val = await Promise.resolve("Started streaming weather data");
+    // create a new child proccess that streams the data.
     res.send(val);
 });
 
 api.get("/api/stop", async (req, res) => {
     const val = await Promise.resolve("Stopped streaming weather data");
+    // tell kill child process to stop transmitting data
     res.send(val);
 });
 
@@ -56,7 +58,7 @@ api.use(
 
 // ----------------- Set up a UDP socket -----------------
 const socket = dgram.createSocket("udp4");
-const data = Buffer.from("Some Data");
+const data = Buffer.from("some data" /* sanitised_data() */);
 
 async function sendData(): Promise<void> {
     socket.send(data, 0, data.length, 5000, "localhost", console.error);
