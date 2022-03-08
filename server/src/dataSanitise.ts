@@ -9,25 +9,20 @@ import { generate_weather_data } from "../../emulator/src/weather_output";
      - wind speed (0 - 100 km/h)
      - wind direction (0 - 360°)
 */
-function sanitised_data() {
+export function sanitisedData(): void {
     let data = generate_weather_data();
-    if (data["ambient_temp"] < 0 || data["ambient_temp"] > 50) {
+    if (data.ambient_temp < 0 || data.ambient_temp > 50) {
         //fix it lmao
     }
-    if (data["track_temp"] < 0 || data["track_temp"] > 100) {
-        
+    if (data.track_temp < 0 || data.track_temp > 100) {
     }
-    if (data["humidity"] < 0 || data["humidity"] > 1) {
-
+    if (data.humidity < 0 || data.humidity > 1) {
     }
-    if (data["precipitation"] < 0 || data ["precipitation"] > 200){
-
+    if (data.precipitation < 0 || data.precipitation > 200) {
     }
-    if (data["wind_speed"] < 0 || data["wind_speed"] > 100) {
-
+    if (data.wind_speed < 0 || data.wind_speed > 100) {
     }
-    if (data["wind_dir"] < 0 || data["wind_dir"] > 360) {
-
+    if (data.wind_dir < 0 || data.wind_dir > 360) {
     }
-    return ()
+    return;
 }

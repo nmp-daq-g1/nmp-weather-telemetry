@@ -8,7 +8,7 @@ import dgram from "dgram";
 import { Buffer } from "buffer";
 import HttpError from "./httpError";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-import { sanitised_data } from "../src/data_sanitise";
+import { sanitisedData } from "./dataSanitise";
 
 const HOSTNAME = "localhost";
 const API_PORT = 8000;
@@ -58,7 +58,7 @@ api.use(
 
 // ----------------- Set up a UDP socket -----------------
 const socket = dgram.createSocket("udp4");
-const data = Buffer.from("some data" /* sanitised_data() */);
+const data = Buffer.from("some data" /* sanitisedData() */);
 
 async function sendData(): Promise<void> {
     socket.send(data, 0, data.length, 5000, "localhost", console.error);
