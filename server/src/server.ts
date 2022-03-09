@@ -13,8 +13,8 @@ import { sanitisedData } from "./dataSanitise";
 const HOSTNAME = "localhost";
 const API_PORT = 8000;
 // ----------------- Create global variable -----------------
-let sendDataID : NodeJS.Timer
-let running : Boolean
+let sendDataID: NodeJS.Timer;
+let running: Boolean;
 // ----------------- Set up the express API server -----------------
 const api = express();
 
@@ -37,7 +37,7 @@ api.get("/api/start", async (req, res) => {
         sendDataID = setInterval(sendData, 10);
         running = true;
     }
-    
+
     res.send(val);
 });
 
@@ -67,15 +67,13 @@ api.use(
 const socket = dgram.createSocket("udp4");
 
 async function sendData(): Promise<void> {
-    let data = Buffer.from(JSON.stringify(sanitisedData()))
+    let data = Buffer.from(JSON.stringify(sanitisedData()));
     socket.send(data, 0, data.length, 5000, "localhost", console.error);
 }
 
 socket.bind(4500);
 
 // -------------------------------------------------------
-
-
 
 api.listen(API_PORT, () =>
     console.log(
