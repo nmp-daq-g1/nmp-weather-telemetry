@@ -28,22 +28,22 @@ function sanitisedData() {
     var last = prev[19] as typeof data_struct;
     console.log(prev.length)
     console.log(prev)
-    if (data.ambient_temp < 0 || data.ambient_temp > 50 || data.ambient_temp == NaN ) {
+    if (data.ambient_temp < 0 || data.ambient_temp > 50 || isNaN(data.ambient_temp)) {
         data.ambient_temp = last.ambient_temp;
     }
-    if (data.track_temp < 0 || data.track_temp > 100 || data.track_temp == NaN) {
+    if (data.track_temp < 0 || data.track_temp > 100 || isNaN(data.track_temp)) {
         data.track_temp = last.track_temp;
     }
-    if (data.humidity < 0 || data.humidity > 1 || data.humidity == NaN) {
+    if (data.humidity < 0 || data.humidity > 1 || isNaN(data.humidity)) {
         data.humidity = last.humidity;
     }
-    if (data.precipitation < 0 || data.precipitation > 200 || data.precipitation == NaN) {
+    if (data.precipitation < 0 || data.precipitation > 200 || isNaN(data.precipitation)) {
         data.precipitation = last.precipitation;
     }
-    if (data.wind_speed < 0 || data.wind_speed > 100 || data.wind_speed == NaN) {
+    if (data.wind_speed < 0 || data.wind_speed > 100 || isNaN(data.wind_speed)) {
         data.wind_speed = last.wind_speed;
     }
-    if (data.wind_dir < 0 || data.wind_dir > 360 || data.wind_dir == NaN) {
+    if (data.wind_dir < 0 || data.wind_dir > 360 || isNaN(data.wind_dir)) {
         data.wind_dir = last.wind_dir;
     }
     prev.shift();
