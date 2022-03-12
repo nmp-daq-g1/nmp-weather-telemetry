@@ -23,4 +23,4 @@ RUN npm install
 
 EXPOSE 8000 4500
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start:prod" ]

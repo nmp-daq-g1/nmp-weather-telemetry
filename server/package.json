@@ -8,6 +8,7 @@
         "build": "tsc",
         "prestart": "npm run build",
         "start": "node .",
+        "start:prod": "node .",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
         "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
         "fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src --color",
