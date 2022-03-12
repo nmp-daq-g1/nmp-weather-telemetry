@@ -19,12 +19,12 @@ const dataStruct = {
     wind_dir: 0,
 };
 
-var prev: Array<typeof dataStruct> = new Array(20);
+const prev: Array<typeof dataStruct> = new Array(20);
 prev.fill(dataStruct);
 
 function sanitisedData(): typeof dataStruct {
-    var data = generate_weather_data();
-    var last = prev[19] as typeof dataStruct;
+    const data = generate_weather_data();
+    const last = prev[19] as typeof dataStruct;
     if (
         data.ambient_temp < 0 ||
         data.ambient_temp > 50 ||
