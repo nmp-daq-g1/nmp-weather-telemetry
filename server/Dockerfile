@@ -21,6 +21,6 @@ COPY --from=builder /app/server/build ./build
 
 RUN npm install
 
-EXPOSE 8000
+EXPOSE 8000 4500
 
 CMD [ "npm", "run", "start:prod" ]
