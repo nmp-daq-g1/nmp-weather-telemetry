@@ -22,8 +22,7 @@ const dataStruct = {
 var prev: Array<typeof dataStruct> = new Array(20);
 prev.fill(dataStruct);
 
-function sanitisedData(): 
-typeof dataStruct {
+function sanitisedData(): typeof dataStruct {
     var data = generate_weather_data();
     var last = prev[19] as typeof dataStruct;
     if (
