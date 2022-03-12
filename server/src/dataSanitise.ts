@@ -24,7 +24,7 @@ prev.fill(dataStruct);
 
 function sanitisedData(): 
 typeof dataStruct {
-    var data = generate_weather_data() as ;
+    var data = generate_weather_data();
     var last = prev[19] as typeof dataStruct;
     console.log(prev.length);
     console.log(prev);
