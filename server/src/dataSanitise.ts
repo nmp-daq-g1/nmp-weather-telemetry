@@ -1,4 +1,3 @@
-import { prependOnceListener } from "process";
 import { generate_weather_data } from "../../emulator/src/weather_output";
 
 /* 
@@ -11,7 +10,7 @@ import { generate_weather_data } from "../../emulator/src/weather_output";
      - wind direction (0 - 360°)
 */
 
-const data_struct = {
+const dataStruct = {
     ambient_temp: 0,
     track_temp: 0,
     humidity: 0,
@@ -20,12 +19,13 @@ const data_struct = {
     wind_dir: 0,
 };
 
-var prev: Array<typeof data_struct> = new Array(20);
-prev.fill(data_struct);
+var prev: Array<typeof dataStruct> = new Array(20);
+prev.fill(dataStruct);
 
-function sanitisedData() {
-    var data = generate_weather_data();
-    var last = prev[19] as typeof data_struct;
+function sanitisedData(): 
+typeof dataStruct {
+    var data = generate_weather_data() as ;
+    var last = prev[19] as typeof dataStruct;
     console.log(prev.length);
     console.log(prev);
     if (

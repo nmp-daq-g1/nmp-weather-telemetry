@@ -15,6 +15,19 @@ const API_PORT = 8000;
 // ----------------- Create global variable -----------------
 let sendDataID: NodeJS.Timer;
 let running: Boolean;
+
+// ----------------- Set up a UDP socket -----------------
+const socket = dgram.createSocket("udp4");
+
+async function sendData(): Promise<void> {
+    let data = Buffer.from(JSON.stringify(sanitisedData()));
+    socket.send(data, 0, data.length, 5000, "localhost", console.error);
+}
+
+socket.bind(4500);
+
+// -------------------------------------------------------
+
 // ----------------- Set up the express API server -----------------
 const api = express();
 
@@ -62,18 +75,6 @@ api.use(
         res.status(status).send(err.message);
     },
 );
-
-// ----------------- Set up a UDP socket -----------------
-const socket = dgram.createSocket("udp4");
-
-async function sendData(): Promise<void> {
-    let data = Buffer.from(JSON.stringify(sanitisedData()));
-    socket.send(data, 0, data.length, 5000, "localhost", console.error);
-}
-
-socket.bind(4500);
-
-// -------------------------------------------------------
 
 api.listen(API_PORT, () =>
     console.log(
