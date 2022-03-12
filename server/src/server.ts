@@ -8,10 +8,25 @@ import dgram from "dgram";
 import { Buffer } from "buffer";
 import HttpError from "./httpError";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-import { generate_weather_data } from "../../emulator/src/weather_output";
+import { sanitisedData } from "./dataSanitise";
 
 const HOSTNAME = "localhost";
 const API_PORT = 8000;
+// ----------------- Create global variable -----------------
+let sendDataID: NodeJS.Timer;
+let running: Boolean;
+
+// ----------------- Set up a UDP socket -----------------
+const socket = dgram.createSocket("udp4");
+
+async function sendData(): Promise<void> {
+    let data = Buffer.from(JSON.stringify(sanitisedData()));
+    socket.send(data, 0, data.length, 5000, "localhost", console.error);
+}
+
+socket.bind(4500);
+
+// -------------------------------------------------------
 
 // ----------------- Set up the express API server -----------------
 const api = express();
@@ -31,11 +46,18 @@ api.get("/", async (req, res) => {
 
 api.get("/api/start", async (req, res) => {
     const val = await Promise.resolve("Started streaming weather data");
+    if (running != true) {
+        sendDataID = setInterval(sendData, 10);
+        running = true;
+    }
+
     res.send(val);
 });
 
 api.get("/api/stop", async (req, res) => {
     const val = await Promise.resolve("Stopped streaming weather data");
+    clearInterval(sendDataID);
+    running = false;
     res.send(val);
 });
 
@@ -53,21 +75,6 @@ api.use(
         res.status(status).send(err.message);
     },
 );
-
-// ----------------- Set up a UDP socket -----------------
-const socket = dgram.createSocket("udp4");
-const data = Buffer.from("Some Data");
-
-async function sendData(): Promise<void> {
-    socket.send(data, 0, data.length, 5000, "localhost", console.error);
-    console.log("Sent data");
-}
-
-socket.bind(4500);
-
-// -------------------------------------------------------
-
-setInterval(sendData, 1000);
 
 api.listen(API_PORT, () =>
     console.log(
