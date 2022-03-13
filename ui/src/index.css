@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --color-hot: linear-gradient(180deg, #e72e3d 0%, #e89845 100%);
+  --color-cold: linear-gradient(
+    180deg,
+    #3f24e6 0%,
+    #4285e7 49.41%,
+    #45e8e8 100%
+  );
+  --color-no-temp: linear-gradient(
+    180deg,
+    #494949 0%,
+    #8b8b8b 49.41%,
+    #bfbfbf 100%
+  );
+  --color-font-red-highlight: #e6243c;
+  --color-font-orange: #e89345;
+  --color-switch-background: #665555;
+}
+
+[color-mode='dark'] {
+  --color-background: #2c2c2e;
+  --color-widget: #1c1c1e;
+  --color-font: #ffffff;
+  --color-icon: #ffffff;
+}
+
+[color-mode='light'] {
+  --color-background: #ffffff;
+  --color-widget: #ccc;
+  --color-font: #2c2c2e;
+  --color-icon: #2c2c2e;
+}
