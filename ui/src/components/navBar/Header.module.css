@@ -14,6 +14,7 @@
   width: 68px;
   margin: 0 26px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .items {

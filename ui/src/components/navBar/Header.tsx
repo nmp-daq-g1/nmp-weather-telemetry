@@ -1,18 +1,27 @@
 import React from 'react';
-import classes from './NavBar.module.css';
+import classes from './Header.module.css';
 import Logo from '../../assets/redbackLogo.svg';
 import SearchIcon from '@mui/icons-material/Search';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { useNavigate } from 'react-router-dom';
 
 // checked === true => light
 // checked === false => dark
-const NavBar: React.FC<{
+const Header: React.FC<{
   switchMode: (checked: boolean) => void;
   currMode: string;
 }> = ({ switchMode, currMode }) => {
+  const navigate = useNavigate();
+
   return (
     <header className={classes.container}>
-      <img src={Logo} alt="redback logo" />
+      <img
+        src={Logo}
+        alt="redback logo"
+        onClick={(): void => {
+          navigate('/');
+        }}
+      />
       <div className={classes.items}>
         <label htmlFor="search">
           <SearchIcon htmlColor={currMode === 'light' ? 'black' : 'white'} />
@@ -35,4 +44,4 @@ const NavBar: React.FC<{
   );
 };
 
-export default NavBar;
+export default Header;
