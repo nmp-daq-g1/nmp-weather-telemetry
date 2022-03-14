@@ -50,6 +50,10 @@
   padding: 4px;
 }
 
+.items > label input:focus {
+  outline: none !important;
+}
+
 @media (max-width: 600px) {
   .items > label {
     width: auto;
