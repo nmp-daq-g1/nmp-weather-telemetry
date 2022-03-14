@@ -8,7 +8,7 @@ import classes from './LinkButton.module.css';
 
 // for buttons on nav bar
 const LinkButton: React.FC<{ text: string; to: string }> = (props) => {
-  const mode = localStorage.getItem('colorMode');
+  const mode = localStorage.getItem('colorMode') || 'dark';
 
   return (
     <NavLink

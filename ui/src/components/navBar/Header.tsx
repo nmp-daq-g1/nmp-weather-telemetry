@@ -33,7 +33,7 @@ const Header: React.FC<{
             height: '30px',
             marginTop: '7px',
           }}
-          checked={localStorage.getItem('colorMode') === 'dark' || false}
+          checked={currMode === 'dark'}
           onChange={switchMode}
           size={120}
           moonColor="white"

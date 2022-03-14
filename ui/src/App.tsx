@@ -11,6 +11,7 @@ import Settings from './components/settings/Settings';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState(localStorage.getItem('colorMode') || 'dark');
+  console.log('🚀 ~ mode', mode);
 
   const switchMode = (checked: boolean): void => {
     const newMode = checked ? 'dark' : 'light';
