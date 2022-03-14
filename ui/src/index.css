@@ -1,3 +1,50 @@
+:root {
+  --color-hot: linear-gradient(180deg, #e72e3d 0%, #e89845 100%);
+  --color-cold: linear-gradient(
+    180deg,
+    #3f24e6 0%,
+    #4285e7 49.41%,
+    #45e8e8 100%
+  );
+  --color-no-temp: linear-gradient(
+    180deg,
+    #494949 0%,
+    #8b8b8b 49.41%,
+    #bfbfbf 100%
+  );
+  --color-font-red-highlight: #e6243c;
+  --color-font-orange: #e89345;
+  --color-switch-background: #665555;
+}
+
+[color-mode='dark'] {
+  --color-background: #2c2c2e;
+  --color-widget: #1c1c1e;
+  --color-font: #ffffff;
+  --color-icon: #ffffff;
+  --color-nav: #000000;
+}
+
+[color-mode='light'] {
+  --color-background: #ffffff;
+  --color-widget: #ccc;
+  --color-font: #2c2c2e;
+  --color-icon: #2c2c2e;
+  --color-nav: white;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: black #ccc;
+}
+
+p,
+h1,
+h2,
+h3 {
+  color: var(--color-font);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +52,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+  height: 100%;
+}
+
+body::-webkit-scrollbar-track {
+  background: #2c2c2e;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid white; /* creates padding around scroll thumb */
 }
 
 code {
