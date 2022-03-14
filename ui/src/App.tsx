@@ -25,10 +25,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div
-      color-mode={localStorage.getItem('colorMode') || 'dark'}
-      className={classes.container}
-    >
+    <div color-mode={mode} className={classes.container}>
       <Header switchMode={switchMode} currMode={mode} />
       <Nav />
       <Routes>

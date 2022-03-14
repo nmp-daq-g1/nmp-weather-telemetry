@@ -3,6 +3,7 @@
   min-height: 100vh;
   height: auto;
   background-color: var(--color-background);
+  margin-top: 0;
 }
 
 .container h1 {

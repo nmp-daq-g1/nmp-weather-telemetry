@@ -2,7 +2,11 @@ import React from 'react';
 import classes from './Temperature.module.css';
 
 const Temperature: React.FC = () => {
-  return <div className={classes.container}>Temperature</div>;
+  return (
+    <section className={classes.wrapper}>
+      <p>temperature</p>
+    </section>
+  );
 };
 
 export default Temperature;

@@ -3,9 +3,9 @@ import classes from './Dashboard.module.css';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className={classes.container}>
+    <section className={classes.wrapper}>
       <p>Dashboard</p>
-    </div>
+    </section>
   );
 };
 
