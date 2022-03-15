@@ -1,0 +1,6 @@
+.container {
+  height: 438px;
+  width: 361px;
+  border-radius: 10px;
+  background-color: var(--color-widget);
+}

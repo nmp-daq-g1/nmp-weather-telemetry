@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
           <span className={classes.circle} />
         </div>
       </div>
-      <Masonry columns={3} spacing={2}>
+      <Masonry columns={{ sm: 2, xs: 1, lg: 3 }} spacing={2}>
         <TempWidget />
         <WindWidget />
         <WeatherWidget />
