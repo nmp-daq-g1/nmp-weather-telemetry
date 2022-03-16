@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import classes from './Dashboard.module.css';
 import TempWidget from './widgets/TempWidget';
 import WindWidget from './widgets/WindWidget';
@@ -12,15 +12,17 @@ import '/node_modules/react-resizable/css/styles.css';
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 const Dashboard: React.FC = () => {
-  const defaultLayout = {
-    lg: [
-      { i: 'temp', x: 0, y: 0, w: 1, h: 3 },
-      { i: 'wind', x: 1, y: 0, w: 1, h: 2 },
-      { i: 'weather', x: 2, y: 0, w: 1, h: 2 },
-      { i: 'rain', x: 0, y: 2, w: 1, h: 2 },
-      { i: 'graph', x: 2, y: 1, w: 2, h: 3 },
-    ],
-  };
+  const defaultLayout = useMemo(() => {
+    return {
+      lg: [
+        { i: 'temp', x: 0, y: 0, w: 1, h: 3 },
+        { i: 'wind', x: 1, y: 0, w: 1, h: 2 },
+        { i: 'weather', x: 2, y: 0, w: 1, h: 2 },
+        { i: 'rain', x: 0, y: 2, w: 1, h: 2 },
+        { i: 'graph', x: 2, y: 1, w: 2, h: 3 },
+      ],
+    };
+  }, []);
 
   const [gridLayout, setGridLayout] = useState(
     JSON.parse(localStorage.getItem('layout') || '{}') || defaultLayout,
@@ -30,7 +32,7 @@ const Dashboard: React.FC = () => {
     if (!localStorage.getItem('layout')) {
       localStorage.setItem('layout', JSON.stringify(defaultLayout));
     }
-  }, []);
+  }, [defaultLayout]);
 
   const backOrigin = (): void => {
     setGridLayout(defaultLayout);
