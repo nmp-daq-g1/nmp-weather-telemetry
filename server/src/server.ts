@@ -9,27 +9,29 @@ import { Buffer } from "buffer";
 import HttpError from "./httpError";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 import { sanitisedData } from "./dataSanitise";
+import expressWS from 'express-ws';
 
 const HOSTNAME = "localhost";
 const API_PORT = 8000;
 // ----------------- Create global variable -----------------
 let sendDataID: NodeJS.Timer;
 let running: Boolean;
-
-// ----------------- Set up a UDP socket -----------------
-const socket = dgram.createSocket("udp4");
+// ----------------- Set up a  socket -----------------
 
 async function sendData(): Promise<void> {
-    let data = Buffer.from(JSON.stringify(sanitisedData()));
-    socket.send(data, 0, data.length, 5000, "localhost", console.error);
+    let data = JSON.stringify(sanitisedData());
+    const valClients = wss.getWss().clients.values();
+    for (const client of valClients) { 
+        var socket = client;
+        socket.send(data);
+    }
 }
-
-socket.bind(4500);
 
 // -------------------------------------------------------
 
 // ----------------- Set up the express API server -----------------
-const api = express();
+const wss = expressWS(express())
+const api = wss.app;
 
 api.use(cors());
 api.use(express.json({ limit: "50mb" }));
@@ -60,6 +62,12 @@ api.get("/api/stop", async (req, res) => {
     running = false;
     res.send(val);
 });
+
+api.ws('/wss', function (ws, req){
+    ws.on('message', function(msg) {
+      console.log(msg);
+    });
+  });
 
 // Error handler
 api.use(
