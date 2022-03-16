@@ -48,3 +48,43 @@
   border-radius: 50%;
   background: #e6243c;
 }
+
+/* widgets */
+.temp {
+  height: 438px;
+  /* width: 361px !important; */
+  border-radius: 10px;
+  background-color: var(--color-widget);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.wind {
+  height: 323px;
+  /* width: 361px !important; */
+  border-radius: 10px;
+  background-color: var(--color-widget);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.weather {
+  height: 321px;
+  /* width: 850px !important; */
+  border-radius: 10px;
+  background-color: var(--color-widget);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.rain {
+  height: 326px;
+  /* width: 361px !important; */
+  border-radius: 10px;
+  background-color: var(--color-widget);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.graph {
+  height: 441px;
+  border-radius: 10px;
+  background-color: var(--color-widget);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.2);
+}

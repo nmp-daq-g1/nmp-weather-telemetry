@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from './wind.module.css';
+// import classes from './wind.module.css';
 
 const WindWidget: React.FC = () => {
   return (
-    <div className={classes.container}>
+    <div>
       <p>WindWidget</p>
     </div>
   );

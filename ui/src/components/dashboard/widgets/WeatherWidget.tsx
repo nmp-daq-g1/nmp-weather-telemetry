@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from './Weather.module.css';
+// import classes from './Weather.module.css';
 
 const WeatherWidget: React.FC = () => {
   return (
-    <div className={classes.container}>
+    <div>
       <p>balabala</p>
     </div>
   );

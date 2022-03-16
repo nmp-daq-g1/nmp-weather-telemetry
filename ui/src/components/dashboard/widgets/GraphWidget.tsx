@@ -1,10 +1,9 @@
 import React from 'react';
-import classes from './Graph.module.css';
-// import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+// import classes from './Graph.module.css';
 
 const GraphWidget: React.FC = () => {
   return (
-    <div className={classes.container}>
+    <div>
       <p>GraphWidget</p>
     </div>
   );

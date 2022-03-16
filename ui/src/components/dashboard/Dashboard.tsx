@@ -14,11 +14,11 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const Dashboard: React.FC = () => {
   const layout = {
     lg: [
-      { i: 'a', x: 0, y: 0, w: 1, h: 3 },
-      { i: 'b', x: 1, y: 0, w: 1, h: 2 },
-      { i: 'c', x: 2, y: 0, w: 1, h: 2 },
-      { i: 'd', x: 0, y: 2, w: 1, h: 2 },
-      { i: 'e', x: 2, y: 1, w: 2, h: 2 },
+      { i: 'temp', x: 0, y: 0, w: 1, h: 3 },
+      { i: 'wind', x: 1, y: 0, w: 1, h: 2 },
+      { i: 'weather', x: 2, y: 0, w: 1, h: 2 },
+      { i: 'rain', x: 0, y: 2, w: 1, h: 2 },
+      { i: 'graph', x: 2, y: 1, w: 2, h: 3 },
     ],
   };
   return (
@@ -36,19 +36,19 @@ const Dashboard: React.FC = () => {
         cols={{ lg: 3, sm: 2, xs: 1 }}
         margin={[20, 20]}
       >
-        <div key="a">
+        <div key="temp" className={classes.temp}>
           <TempWidget />
         </div>
-        <div key="b" className="widget">
+        <div key="wind" className={classes.wind}>
           <WindWidget />
         </div>
-        <div key="c" className="widget">
+        <div key="weather" className={classes.weather}>
           <WeatherWidget />
         </div>
-        <div key="d" className="widget">
+        <div key="rain" className={classes.rain}>
           <RainWidget />
         </div>
-        <div key="e" className="widget">
+        <div key="graph" className={classes.graph}>
           <GraphWidget />
         </div>
       </ResponsiveReactGridLayout>
