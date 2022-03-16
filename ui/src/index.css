@@ -12,8 +12,8 @@
     #8b8b8b 49.41%,
     #bfbfbf 100%
   );
-  --color-font-red-highlight: #e6243c;
-  --color-font-orange: #e89345;
+  --color-red: #e6243c;
+  --color-orange: #e89345;
   --color-switch-background: #665555;
 }
 
@@ -27,7 +27,7 @@
 
 [color-mode='light'] {
   --color-background: #ffffff;
-  --color-widget: #ccc;
+  --color-widget: #ffffff;
   --color-font: #2c2c2e;
   --color-icon: #2c2c2e;
   --color-nav: white;
@@ -55,19 +55,8 @@ body {
   overflow: auto;
 }
 
-body::-webkit-scrollbar {
-  width: 10px; /* width of the entire scrollbar */
-  height: 100%;
-}
-
-body::-webkit-scrollbar-track {
-  background: #2c2c2e;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: transparent; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 1px solid white; /* creates padding around scroll thumb */
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 code {

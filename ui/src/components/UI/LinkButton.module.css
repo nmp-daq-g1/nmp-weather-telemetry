@@ -5,7 +5,7 @@
   align-items: center;
   height: 65px;
   width: 65px;
-  transition: all 500ms ease;
+  transition: all 800ms ease;
   justify-content: center;
   text-decoration: none;
   letter-spacing: 1px;
@@ -13,10 +13,10 @@
 
 .btn:hover,
 .normal:hover {
-  padding-left: 15px;
+  padding-left: 13px;
   justify-content: flex-start;
-  width: 200px;
-  background: #e6243c;
+  width: 210px;
+  background: var(--color-red);
   margin-left: 120px;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .active {
-  background: #e6243c;
+  background: var(--color-red);
 }
 
 .normal {
