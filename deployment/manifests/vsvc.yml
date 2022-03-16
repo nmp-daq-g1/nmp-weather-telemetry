@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nmp-wt-vsvc
+  namespace: nmp-wt
+spec:
+  hosts:
+    - "nmp.vex.sh"
+  gateways:
+    - "nmp-gateway"
+  http:
+    - route:
+        - destination:
+            host: nmp-wt-server
+            port:
+              number: 8000

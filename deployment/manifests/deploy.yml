@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nmp-wt-server
+  namespace: nmp-wt
+spec:
+  selector:
+    matchLabels:
+      app: nmp-wt-server
+  template:
+    metadata:
+      labels:
+        app: nmp-wt-server
+    spec:
+      containers:
+        - name: nmp-wt-server
+          image: ghcr.io/nmp-daq-g1/nmp-wt-server:latest
+          resources:
+            limits:
+              memory: 100Mi
+              cpu: 100m
+          ports:
+            - containerPort: 8000
+              name: api-endpoint
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nmp-wt-server
+  namespace: nmp-wt
+spec:
+  selector:
+    app: nmp-wt-server
+  ports:
+    - port: 8000
+      targetPort: 8000
+      name: api-endpoint
+      protocol: TCP
