@@ -12,8 +12,8 @@
     #8b8b8b 49.41%,
     #bfbfbf 100%
   );
-  --color-font-red-highlight: #e6243c;
-  --color-font-orange: #e89345;
+  --color-red: #e6243c;
+  --color-orange: #e89345;
   --color-switch-background: #665555;
 }
 

@@ -16,7 +16,7 @@
   padding-left: 13px;
   justify-content: flex-start;
   width: 210px;
-  background: #e6243c;
+  background: var(--color-red);
   margin-left: 120px;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .active {
-  background: #e6243c;
+  background: var(--color-red);
 }
 
 .normal {
