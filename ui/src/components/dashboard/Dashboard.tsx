@@ -25,9 +25,10 @@ const Dashboard: React.FC = () => {
   }, []);
 
   const [gridLayout, setGridLayout] = useState(
-    JSON.parse(localStorage.getItem('layout') || '{}') || defaultLayout,
+    localStorage.getItem('layout')
+      ? JSON.parse(localStorage.getItem('layout') || '{}')
+      : defaultLayout,
   );
-
   useEffect(() => {
     if (!localStorage.getItem('layout')) {
       localStorage.setItem('layout', JSON.stringify(defaultLayout));
