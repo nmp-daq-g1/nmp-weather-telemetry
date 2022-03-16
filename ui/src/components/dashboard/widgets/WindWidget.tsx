@@ -1,5 +1,5 @@
 import React from 'react';
-// import classes from './wind.module.css';
+// import classes from './Wind.module.css';
 
 const WindWidget: React.FC = () => {
   return (
