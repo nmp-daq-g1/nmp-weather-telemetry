@@ -4,34 +4,33 @@ import express, {
     Response as ExpressResponse,
 } from "express";
 import cors from "cors";
-import dgram from "dgram";
-import { Buffer } from "buffer";
 import HttpError from "./httpError";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 import { sanitisedData } from "./dataSanitise";
-import expressWS from 'express-ws';
+import expressWS from "express-ws";
 
 const HOSTNAME = "localhost";
 const API_PORT = 8000;
 // ----------------- Create global variable -----------------
 let sendDataID: NodeJS.Timer;
 let running: Boolean;
+
+// ----------------- Set up the express API server -----------------
+const wss = expressWS(express());
+const api = wss.app;
+
 // ----------------- Set up a  socket -----------------
 
 async function sendData(): Promise<void> {
     let data = JSON.stringify(sanitisedData());
     const valClients = wss.getWss().clients.values();
-    for (const client of valClients) { 
+    for (const client of valClients) {
         var socket = client;
         socket.send(data);
     }
 }
 
 // -------------------------------------------------------
-
-// ----------------- Set up the express API server -----------------
-const wss = expressWS(express())
-const api = wss.app;
 
 api.use(cors());
 api.use(express.json({ limit: "50mb" }));
@@ -63,11 +62,11 @@ api.get("/api/stop", async (req, res) => {
     res.send(val);
 });
 
-api.ws('/wss', function (ws, req){
-    ws.on('message', function(msg) {
-      console.log(msg);
+api.ws("/wss", function (ws) {
+    ws.on("message", function (msg) {
+        console.log(msg);
     });
-  });
+});
 
 // Error handler
 api.use(
