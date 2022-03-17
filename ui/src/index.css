@@ -33,6 +33,14 @@
   --color-nav: white;
 }
 
+[data-status='LIVE'] {
+  --color-status: rgb(17, 199, 17);
+}
+
+[data-status='OFFLINE'] {
+  --color-status: rgba(204, 204, 204, 0.591);
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: black #ccc;
