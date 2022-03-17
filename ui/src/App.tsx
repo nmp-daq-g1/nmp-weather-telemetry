@@ -16,7 +16,7 @@ const App: React.FC = () => {
   // switch between dark mode and light mode
   const [mode, setMode] = useState(localStorage.getItem('colorMode') || 'dark');
   const ctx = useContext(data);
-
+  console.log(ctx.realTimeData);
   const switchMode = (checked: boolean): void => {
     const newMode = checked ? 'dark' : 'light';
     setMode((): string => newMode);

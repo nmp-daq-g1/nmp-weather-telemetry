@@ -1,22 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const data = React.createContext({
   getData: false,
+  realTimeData: {},
   stopGetDataHandler: () => {},
   startGetDataHandler: () => {},
 });
 
 export const DataProvider: React.FC = (props) => {
-  const [getData, setGetData] = useState(
-    localStorage.getItem('streaming') ? true : false,
-  );
+  const [getData, setGetData] = useState(false);
+  const [realTimeData, setRealTimeData] = useState({});
+
+  useEffect(() => {
+    const dup = realTimeData;
+    const interval = setInterval(() => {
+      if (JSON.stringify(dup) === JSON.stringify(realTimeData)) {
+        setGetData(false);
+      }
+    }, 500);
+    return () => clearInterval(interval);
+  }, [realTimeData]);
+
+  useEffect(() => {
+    const ws = new WebSocket('wss://nmp.vex.sh/wss');
+    ws.onopen = (): void => {
+      // eslint-disable-next-line no-console
+      console.log('connected');
+    };
+    ws.onmessage = (evt): void => {
+      const weather = JSON.parse(evt.data);
+      setRealTimeData(weather);
+      if (weather) {
+        setGetData(true);
+      }
+    };
+    ws.onclose = (): void => {
+      // eslint-disable-next-line no-console
+      console.log('disconnected');
+    };
+  }, []);
 
   const stopGetDataHandler = async (): Promise<void> => {
     try {
       const resp = await axios.get('https://nmp.vex.sh/api/stop');
       if (resp.status === 200) {
-        localStorage.removeItem('streaming');
         setGetData(false);
       }
     } catch (err) {
@@ -29,7 +57,6 @@ export const DataProvider: React.FC = (props) => {
     try {
       const resp = await axios.get('https://nmp.vex.sh/api/start');
       if (resp.status === 200) {
-        localStorage.setItem('streaming', 'true');
         setGetData(true);
       }
     } catch (err) {
@@ -39,7 +66,12 @@ export const DataProvider: React.FC = (props) => {
   };
   return (
     <data.Provider
-      value={{ getData: getData, stopGetDataHandler, startGetDataHandler }}
+      value={{
+        getData: getData,
+        realTimeData: realTimeData,
+        stopGetDataHandler,
+        startGetDataHandler,
+      }}
     >
       {props.children}
     </data.Provider>
