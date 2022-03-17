@@ -8,7 +8,7 @@ const data = React.createContext({
 });
 
 export const DataProvider: React.FC = (props) => {
-  const URL = 'http://nmp.vex.sh/api/start';
+  const URL = 'https://nmp.vex.sh/api/start';
   const [getData, setGetData] = useState(false);
 
   const stopGetDataHandler = async (): Promise<void> => {
