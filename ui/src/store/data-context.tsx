@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const data = React.createContext({
   getData: false,
@@ -7,13 +8,31 @@ const data = React.createContext({
 });
 
 export const DataProvider: React.FC = (props) => {
+  const URL = 'http://nmp.vex.sh/api/start';
   const [getData, setGetData] = useState(false);
-  const stopGetDataHandler = (): void => {
-    setGetData(false);
+
+  const stopGetDataHandler = async (): Promise<void> => {
+    try {
+      const resp = await axios.get(URL);
+      if (resp.status === 200) {
+        setGetData(false);
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    }
   };
 
-  const startGetDataHandler = (): void => {
-    setGetData(true);
+  const startGetDataHandler = async (): Promise<void> => {
+    try {
+      const resp = await axios.get(URL);
+      if (resp.status === 200) {
+        setGetData(true);
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    }
   };
   return (
     <data.Provider

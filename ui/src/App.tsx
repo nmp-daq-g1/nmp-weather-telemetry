@@ -39,13 +39,13 @@ const App: React.FC = () => {
           alt="stop getting data"
           onClick={ctx.stopGetDataHandler}
           className={classes['status-icon']}
-          title="stop getting data"
+          title="Stop getting data"
         />
       ) : (
         <img
           src={Resume}
           alt="start getting data"
-          title="start getting data"
+          title="Start getting data"
           onClick={ctx.startGetDataHandler}
           className={classes['status-icon']}
         />

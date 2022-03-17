@@ -34,7 +34,7 @@
 }
 
 [data-status='LIVE'] {
-  --color-status: green;
+  --color-status: rgb(17, 199, 17);
 }
 
 [data-status='STOP'] {
