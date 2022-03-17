@@ -8,13 +8,15 @@ const data = React.createContext({
 });
 
 export const DataProvider: React.FC = (props) => {
-  const URL = 'https://nmp.vex.sh/api/start';
-  const [getData, setGetData] = useState(false);
+  const [getData, setGetData] = useState(
+    localStorage.getItem('streaming') ? true : false,
+  );
 
   const stopGetDataHandler = async (): Promise<void> => {
     try {
-      const resp = await axios.get(URL);
+      const resp = await axios.get('https://nmp.vex.sh/api/stop');
       if (resp.status === 200) {
+        localStorage.removeItem('streaming');
         setGetData(false);
       }
     } catch (err) {
@@ -25,8 +27,9 @@ export const DataProvider: React.FC = (props) => {
 
   const startGetDataHandler = async (): Promise<void> => {
     try {
-      const resp = await axios.get(URL);
+      const resp = await axios.get('https://nmp.vex.sh/api/start');
       if (resp.status === 200) {
+        localStorage.setItem('streaming', 'true');
         setGetData(true);
       }
     } catch (err) {

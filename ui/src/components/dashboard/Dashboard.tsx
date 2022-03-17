@@ -14,7 +14,7 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 const Dashboard: React.FC = () => {
   const ctx = useContext(data);
-  const status = ctx.getData ? 'LIVE' : 'STOP';
+  const status = ctx.getData ? 'LIVE' : 'OFFLINE';
   const defaultLayout = useMemo(() => {
     return {
       lg: [
@@ -56,7 +56,12 @@ const Dashboard: React.FC = () => {
         <h2>Overview</h2>
         <div className={classes.status}>
           <p>{status}</p>
-          <span className={classes.circle} data-status={status} />
+          <span
+            className={`${classes.circle} ${
+              status === 'LIVE' && classes['circle-flicker']
+            }`}
+            data-status={status}
+          />
         </div>
       </div>
       <ResponsiveReactGridLayout

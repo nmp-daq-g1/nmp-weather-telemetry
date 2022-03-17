@@ -21,7 +21,7 @@
 .status {
   background-color: var(--color-nav);
   height: 38px;
-  width: 84px;
+  width: auto;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -48,6 +48,10 @@
   width: 10px;
   border-radius: 50%;
   background: var(--color-status);
+}
+
+.circle-flicker {
+  animation: flicker 1s ease-in-out infinite;
 }
 
 /* widgets */
@@ -110,4 +114,19 @@
 
 .back-icon {
   color: #ffffff;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
 }
