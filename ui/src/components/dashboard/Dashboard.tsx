@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import classes from './Dashboard.module.css';
 import TempWidget from './widgets/TempWidget';
 import WindWidget from './widgets/WindWidget';
@@ -9,9 +9,12 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import '/node_modules/react-grid-layout/css/styles.css';
 import '/node_modules/react-resizable/css/styles.css';
+import data from '../../store/data-context';
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 const Dashboard: React.FC = () => {
+  const ctx = useContext(data);
+  const status = ctx.getData ? 'LIVE' : 'STOP';
   const defaultLayout = useMemo(() => {
     return {
       lg: [
@@ -52,8 +55,8 @@ const Dashboard: React.FC = () => {
       <div className={classes.top}>
         <h2>Overview</h2>
         <div className={classes.status}>
-          <p>LIVE</p>
-          <span className={classes.circle} />
+          <p>{status}</p>
+          <span className={classes.circle} data-status={status} />
         </div>
       </div>
       <ResponsiveReactGridLayout
@@ -84,7 +87,7 @@ const Dashboard: React.FC = () => {
         title="Back to original position of widgets"
         onClick={backOrigin}
       >
-        <ReplayIcon className={classes['back-icon']} />
+        <ReplayIcon className={classes['back-icon']} fontSize="large" />
       </button>
     </section>
   );

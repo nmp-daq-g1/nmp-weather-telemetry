@@ -33,6 +33,14 @@
   --color-nav: white;
 }
 
+[data-status='LIVE'] {
+  --color-status: green;
+}
+
+[data-status='STOP'] {
+  --color-status: #e6243c;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: black #ccc;

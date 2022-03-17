@@ -9,3 +9,16 @@
 .container h1 {
   margin: 0;
 }
+
+.status-icon {
+  width: 64px;
+  position: fixed;
+  bottom: 40px;
+  right: 56px;
+  transition: all ease 500ms;
+  cursor: pointer;
+}
+
+.status-icon:hover {
+  transform: scale(1.04);
+}
