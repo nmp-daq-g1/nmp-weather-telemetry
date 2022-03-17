@@ -37,8 +37,8 @@
   --color-status: rgb(17, 199, 17);
 }
 
-[data-status='STOP'] {
-  --color-status: #e6243c;
+[data-status='OFFLINE'] {
+  --color-status: rgba(204, 204, 204, 0.591);
 }
 
 * {
