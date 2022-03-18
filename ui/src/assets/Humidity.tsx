@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Humidity: React.FC = () => {
-  const isDarkMode = localStorage.getItem('colorMode') === 'dark' || 'dark';
+  const isDarkMode = localStorage.getItem('colorMode') === 'dark';
 
   return (
     <svg
