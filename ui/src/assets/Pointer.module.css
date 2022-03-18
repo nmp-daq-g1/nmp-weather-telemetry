@@ -1,0 +1,5 @@
+.pointer {
+  transition: all 300ms ease;
+  position: absolute;
+  margin-bottom: 30px;
+}
