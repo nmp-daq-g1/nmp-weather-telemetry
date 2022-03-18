@@ -4,8 +4,7 @@ import classes from './Pointer.module.css';
 
 const Pointer: React.FC = () => {
   const ctx = useContext(data);
-  // eslint-disable-next-line @typescript-eslint/dot-notation
-  const dir = ctx.realTimeData['wind_dir'];
+  const dir = ctx.realTimeData.wind_dir;
 
   return (
     <svg
