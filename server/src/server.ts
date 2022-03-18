@@ -48,7 +48,7 @@ api.get("/", async (req, res) => {
 api.get("/api/start", async (req, res) => {
     const val = await Promise.resolve("Started streaming weather data");
     if (running != true) {
-        sendDataID = setInterval(sendData, 10);
+        sendDataID = setInterval(sendData, 259);
         running = true;
     }
 
