@@ -1,6 +1,8 @@
 import React from 'react';
 
-const WindIcon: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => {
+const WindIcon: React.FC = () => {
+  const isDarkMode = localStorage.getItem('colorMode') === 'dark' || 'dark';
+
   return (
     <svg
       width="38"

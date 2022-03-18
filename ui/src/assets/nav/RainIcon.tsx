@@ -1,6 +1,8 @@
 import React from 'react';
 
-const RainIcon: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => {
+const RainIcon: React.FC = () => {
+  const isDarkMode = localStorage.getItem('colorMode') === 'dark' || 'dark';
+
   return (
     <svg
       width="35"

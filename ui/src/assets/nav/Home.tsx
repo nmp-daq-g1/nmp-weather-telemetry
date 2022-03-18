@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Home: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => {
+const Home: React.FC = () => {
+  const isDarkMode = localStorage.getItem('colorMode') === 'dark' || 'dark';
   return (
     <svg
       width="29"

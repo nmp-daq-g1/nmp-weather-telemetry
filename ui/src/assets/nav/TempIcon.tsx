@@ -1,6 +1,7 @@
 import React from 'react';
 
-const TempIcon: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => {
+const TempIcon: React.FC = () => {
+  const isDarkMode = localStorage.getItem('colorMode') === 'dark' || 'dark';
   return (
     <svg
       width="24"
