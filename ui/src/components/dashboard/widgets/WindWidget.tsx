@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import data from '../../../store/data-context';
 import classes from './Wind.module.css';
-import Compass from '../../../assets/Compass.svg';
+import Compass from '../../../assets/Compass';
 import Pointer from '../../../assets/Pointer';
 
 const WindWidget: React.FC = () => {
@@ -18,7 +18,8 @@ const WindWidget: React.FC = () => {
       <p>
         Track <b>Wind Speed</b>
       </p>
-      <img src={Compass} alt="compass" />
+      {/* <img src={Compass} alt="compass" /> */}
+      <Compass />
       <Pointer />
       <h2>
         {dir}km/h <span>{directions[index]}</span>
