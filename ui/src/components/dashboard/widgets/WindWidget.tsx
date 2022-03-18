@@ -16,7 +16,6 @@ const WindWidget: React.FC = () => {
       <p>
         Track <b>Wind Speed</b>
       </p>
-      {/* <img src={Compass} alt="compass" /> */}
       <Compass />
       <Pointer />
       <h2>
