@@ -3,14 +3,28 @@ import axios from 'axios';
 
 const data = React.createContext({
   getData: false,
-  realTimeData: {},
+  realTimeData: {
+    ambient_temp: 0,
+    humidity: 0,
+    precipitation: 0,
+    track_temp: 0,
+    wind_dir: 0,
+    wind_speed: 0,
+  },
   stopGetDataHandler: () => {},
   startGetDataHandler: () => {},
 });
 
 export const DataProvider: React.FC = (props) => {
   const [getData, setGetData] = useState(false);
-  const [realTimeData, setRealTimeData] = useState({});
+  const [realTimeData, setRealTimeData] = useState({
+    ambient_temp: 0,
+    humidity: 0,
+    precipitation: 0,
+    track_temp: 0,
+    wind_dir: 0,
+    wind_speed: 0,
+  });
 
   useEffect(() => {
     const dup = realTimeData;
