@@ -1,6 +1,6 @@
 .pointer {
   transition: all 300ms ease;
   position: absolute;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   transform-origin: center;
 }
