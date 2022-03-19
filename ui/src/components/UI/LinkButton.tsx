@@ -8,8 +8,6 @@ import classes from './LinkButton.module.css';
 
 // for buttons on nav bar
 const LinkButton: React.FC<{ text: string; to: string }> = (props) => {
-  const mode = localStorage.getItem('colorMode') || 'dark';
-
   return (
     <NavLink
       to={props.to}
@@ -19,14 +17,10 @@ const LinkButton: React.FC<{ text: string; to: string }> = (props) => {
           : `${classes.normal} ${classes.btn}`
       }
     >
-      {props.text === 'Overview' && <HomeIcon isDarkMode={mode === 'dark'} />}
-      {props.text === 'Temperature' && (
-        <TempIcon isDarkMode={mode === 'dark'} />
-      )}
-      {props.text === 'Wind' && <WindIcon isDarkMode={mode === 'dark'} />}
-      {props.text === 'Precipitation' && (
-        <RainIcon isDarkMode={mode === 'dark'} />
-      )}
+      {props.text === 'Overview' && <HomeIcon />}
+      {props.text === 'Temperature' && <TempIcon />}
+      {props.text === 'Wind' && <WindIcon />}
+      {props.text === 'Precipitation' && <RainIcon />}
       <p className={classes.text}>{props.text}</p>
     </NavLink>
   );

@@ -5,6 +5,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { DataProvider } from './store/data-context';
 
+import '@fontsource/roboto';
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
