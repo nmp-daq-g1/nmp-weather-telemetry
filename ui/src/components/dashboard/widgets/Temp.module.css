@@ -1,2 +1,121 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.container p {
+  letter-spacing: 1px;
+}
+
+.track {
+  min-width: 194px;
+  min-height: 194px;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 500ms ease;
+  background: var(--color-no-temp);
+}
+
+.track__cold {
+  background: var(--color-cold);
+}
+
+.track__hot {
+  background: var(--color-hot);
+}
+
+.track-circle {
+  min-width: 139px;
+  min-height: 139px;
+  width: 50%;
+  height: 50%;
+
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-circle h2 {
+  color: var(--color-font-no-temp);
+  display: flex;
+  align-items: flex-start;
+}
+
+.degree {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.track-temp__cold {
+  color: var(--color-cold-font) !important;
+}
+
+.track-temp__hot {
+  color: var(--color-red) !important;
+}
+
+.ambient {
+  display: flex;
+  align-items: flex-start;
+  color: var(--color-red);
+  margin-bottom: 0;
+}
+
+.container button {
+  margin-top: 13px;
+  position: relative;
+  left: -120px;
+  cursor: pointer;
+  height: 38px;
+  width: 77px;
+  border-radius: 10px;
+  background: var(--color-switch-background);
+  border: 0;
+  color: #ffffff;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cover {
+  position: absolute;
+  background-color: #f55252;
+  height: 38px;
+  width: 38px;
+  border-radius: 10px;
+  transition: all 400ms ease-in-out;
+}
+
+.celsius {
+  left: 0;
+}
+
+.celsius::after {
+  content: '°C';
+  position: absolute;
+  top: 9px;
+  left: 10px;
+}
+
+.fahrenheit {
+  left: 38px;
+}
+
+.fahrenheit::after {
+  content: '°F';
+  position: absolute;
+  top: 9px;
+  left: 10px;
 }
