@@ -1,17 +1,19 @@
 :root {
-  --color-hot: linear-gradient(180deg, #e72e3d 0%, #e89845 100%);
+  --color-hot: linear-gradient(180deg, #e6243c 0%, #e89e45 100%);
   --color-cold: linear-gradient(
     180deg,
     #3f24e6 0%,
     #4285e7 49.41%,
     #45e8e8 100%
   );
+  --color-cold-font: #4162e7;
   --color-no-temp: linear-gradient(
     180deg,
     #494949 0%,
     #8b8b8b 49.41%,
     #bfbfbf 100%
   );
+  --color-font-no-temp: #8b8b8b;
   --color-red: #e6243c;
   --color-orange: #e89345;
   --color-switch-background: #665555;
