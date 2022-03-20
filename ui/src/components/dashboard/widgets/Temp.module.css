@@ -15,6 +15,7 @@
 
 .wrapper {
   resize: both;
+  min-width: 34%;
   width: 34%;
   height: auto;
   aspect-ratio: 1/1;
@@ -40,8 +41,6 @@
 }
 
 .track-circle {
-  /* min-width: 130px;
-  min-height: 130px; */
   width: 70%;
   height: 70%;
   background-color: #ffffff;
@@ -97,10 +96,13 @@
 .cover {
   position: absolute;
   background-color: #f55252;
-  height: 38px;
+  height: 100%;
   width: 38px;
   border-radius: 10px;
   transition: all 400ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .celsius {
@@ -109,9 +111,6 @@
 
 .celsius::after {
   content: '°C';
-  position: absolute;
-  top: 9px;
-  left: 10px;
 }
 
 .fahrenheit {
@@ -120,7 +119,4 @@
 
 .fahrenheit::after {
   content: '°F';
-  position: absolute;
-  top: 9px;
-  left: 10px;
 }
