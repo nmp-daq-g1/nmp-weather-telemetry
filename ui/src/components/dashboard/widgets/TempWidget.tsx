@@ -32,18 +32,20 @@ const TempWidget: React.FC = () => {
       <p>
         Track <b>Temperature</b>
       </p>
-      <div className={`${classes.track} ${trackColor}`}>
-        <div className={classes['track-circle']}>
-          <h2 className={trackFontColor}>
-            {unit === '°C'
-              ? trackTemp
-              : trackTemp !== '--'
-              ? convertToF(trackTemp)
-              : '--'}
-            {trackTemp !== '--' && (
-              <span className={classes.degree}>{unit}</span>
-            )}
-          </h2>
+      <div className={classes.wrapper}>
+        <div className={`${classes.track} ${trackColor}`}>
+          <div className={classes['track-circle']}>
+            <h2 className={trackFontColor}>
+              {unit === '°C'
+                ? trackTemp
+                : trackTemp !== '--'
+                ? convertToF(trackTemp)
+                : '--'}
+              {trackTemp !== '--' && (
+                <span className={classes.degree}>{unit}</span>
+              )}
+            </h2>
+          </div>
         </div>
       </div>
       <button onClick={switchUnitHandler}>
