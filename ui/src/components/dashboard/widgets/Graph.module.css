@@ -1,0 +1,12 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: white;
+}

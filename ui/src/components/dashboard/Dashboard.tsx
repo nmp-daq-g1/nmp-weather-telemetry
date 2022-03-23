@@ -4,7 +4,7 @@ import TempWidget from './widgets/TempWidget';
 import WindWidget from './widgets/WindWidget';
 import WeatherWidget from './widgets/WeatherWidget';
 import RainWidget from './widgets/RainWidget';
-import GraphWidget from './widgets/GraphWidget';
+import TempForecast from './widgets/GraphWidget';
 import ReplayIcon from '@mui/icons-material/Replay';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import '/node_modules/react-grid-layout/css/styles.css';
@@ -84,7 +84,7 @@ const Dashboard: React.FC = () => {
           <RainWidget />
         </div>
         <div key="graph" className={classes.graph}>
-          <GraphWidget />
+          <TempForecast />
         </div>
       </ResponsiveReactGridLayout>
       <button
