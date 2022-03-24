@@ -11,13 +11,17 @@ const Background = styled('div', {
   margin: '.5rem',
 });
 
-const Hour = styled('div', {
+const Hour = styled('span', {
+  display: 'block',
+  color: 'var(--color-font)',
   fontWeight: 200,
   fontSize: 15,
   marginBottom: '.25rem',
 });
 
-const Temp = styled('div', {
+const Temp = styled('span', {
+  display: 'block',
+  color: 'var(--color-font)',
   fontWeight: 400,
   fontSize: 30,
 });
