@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import classes from './Dashboard.module.css';
 import TempWidget from './widgets/TempWidget';
 import WindWidget from './widgets/WindWidget';
-import WeatherWidget from './widgets/WeatherWidget';
+import DateWidget from './widgets/DateWidget';
 import RainWidget from './widgets/RainWidget';
 import TempForecast from './widgets/ForecastWidget';
 import ReplayIcon from '@mui/icons-material/Replay';
@@ -78,7 +78,7 @@ const Dashboard: React.FC = () => {
           <WindWidget />
         </div>
         <div key="weather" className={classes.weather}>
-          <WeatherWidget />
+          <DateWidget />
         </div>
         <div key="rain" className={classes.rain}>
           <RainWidget />
