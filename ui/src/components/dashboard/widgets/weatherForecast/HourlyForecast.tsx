@@ -14,14 +14,12 @@ const Background = styled('div', {
 const Hour = styled('div', {
   fontWeight: 200,
   fontSize: 15,
-  color: 'white',
   marginBottom: '.25rem',
 });
 
 const Temp = styled('div', {
   fontWeight: 400,
   fontSize: 30,
-  color: 'white',
 });
 
 const HourlyForecast: React.FC<HourlyForecastProps> = ({ temp, time }) => {

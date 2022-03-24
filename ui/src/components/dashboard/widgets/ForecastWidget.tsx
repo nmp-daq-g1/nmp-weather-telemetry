@@ -19,7 +19,6 @@ const Container = styled('div', {
 });
 
 const MainHeading = styled('h1', {
-  color: 'white',
   fontWeight: 'normal',
 });
 

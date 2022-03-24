@@ -16,7 +16,6 @@ const MainCard = styled('div', {
 });
 
 const TodayHeading = styled('h3', {
-  color: 'white',
   fontWeight: '300',
   textAlign: 'center',
   fontSize: 20,
