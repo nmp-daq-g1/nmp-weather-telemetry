@@ -14,6 +14,23 @@ A live copy of the frontend is available [here](https://nmp-wt.pages.dev).
 - [ ] Task 4 (persistence)
 - [x] Task 5 (API Integration)
 
+### Further Application/Deployment details
+
+The backend is entirely containerised and can be built locally, or a pre-built image may be pulled. The backend exposes port `8000` as its HTTP endpoint.
+
+To deploy this application, you will need:
+
+- A kubernetes cluster
+- Istio deployed into the cluster (default configuration is fine)
+- LoadBalancer support on your cluster
+
+To deploy this application:
+
+1. Navigate to the `/deployment/manifests` directory. Ensure that the values inside `gateway.yml` and `vsvc.yml` (specifically the `host` field) is set to an appropriate domain name, or all with `*`.
+2. Change the image tag within `deploy.yml` to be the latest image, or set it to a specific image tag.
+3. Apply all the manifests into your cluster with `kubectl apply -f .`.
+4. Wait for the pod to be scheduled onto a node and running.
+
 ## Implementation Details
 
 ### Backend
