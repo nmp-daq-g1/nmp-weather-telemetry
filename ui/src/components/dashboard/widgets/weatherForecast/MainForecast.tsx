@@ -22,10 +22,6 @@ const TodayHeading = styled('h3', {
   fontSize: 20,
 });
 
-const BlankDiv = styled('div', {
-  height: 100,
-});
-
 const WeatherText = styled('p', {
   fontSize: 40,
   background:
@@ -58,7 +54,6 @@ const MainForecast: React.FC<MainForecastProps> = ({ temp }) => {
   return (
     <MainCard>
       <TodayHeading>Right Now</TodayHeading>
-      <BlankDiv />
       <WeatherText>{temp}°</WeatherText>
       <Chip>Sydney, NSW</Chip>
     </MainCard>

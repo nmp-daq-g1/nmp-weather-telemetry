@@ -13,6 +13,9 @@ const Container = styled('div', {
   '*': {
     boxSizing: 'border-box',
   },
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginTop: '-0.5rem',
 });
 
 const MainHeading = styled('h1', {
@@ -21,7 +24,6 @@ const MainHeading = styled('h1', {
 });
 
 const MiddleContainer = styled('div', {
-  // display: 'flex',
   padding: '1rem',
   display: 'grid',
   gridTemplateColumns: '220px 1fr',

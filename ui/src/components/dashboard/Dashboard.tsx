@@ -4,7 +4,7 @@ import TempWidget from './widgets/TempWidget';
 import WindWidget from './widgets/WindWidget';
 import WeatherWidget from './widgets/WeatherWidget';
 import RainWidget from './widgets/RainWidget';
-import TempForecast from './widgets/GraphWidget';
+import TempForecast from './widgets/ForecastWidget';
 import ReplayIcon from '@mui/icons-material/Replay';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import '/node_modules/react-grid-layout/css/styles.css';
