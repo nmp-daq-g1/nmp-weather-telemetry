@@ -6,6 +6,8 @@ All core components of the project were successfully implemented. Out of the ext
 
 A live copy of the frontend is available [here](https://nmp-wt.pages.dev).
 
+![UI Dashboard Preview](./docs/images/ui-example.png)
+
 ### Completed Tasks
 
 - [x] Task 1 (backend)
