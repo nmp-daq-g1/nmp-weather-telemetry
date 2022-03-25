@@ -4,7 +4,8 @@
 
 All core components of the project were successfully implemented. Out of the extension tasks, only task 4 has not been completed (persistence).
 
-A live copy of the frontend is available [here](https://nmp-wt.pages.dev).
+- A live copy of the frontend is available [here](https://nmp-wt.pages.dev).
+- The figma design is available [here](https://www.figma.com/file/v3SkkNhikxfwnUrxjTvgH6/Redback-racing?node-id=0%3A1).
 
 ![UI Dashboard Preview](./docs/images/ui-example.png)
 
