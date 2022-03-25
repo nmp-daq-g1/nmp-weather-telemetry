@@ -30,7 +30,8 @@ async function sendData(): Promise<void> {
     }
 }
 
-// -------------------------------------------------------
+// ------------------ Set up database -------------------
+const pool = require("./database");
 
 api.use(cors());
 api.use(express.json({ limit: "50mb" }));
