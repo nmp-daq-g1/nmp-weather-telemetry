@@ -1,5 +1,6 @@
 import express, {
     NextFunction,
+    query,
     Request as ExpressRequest,
     Response as ExpressResponse,
 } from "express";
@@ -28,10 +29,13 @@ async function sendData(): Promise<void> {
         var socket = client;
         socket.send(data);
     }
+    pool.query("INSERT INTO data_log (data_info) VALUES($1)", [data]);
 }
 
 // ------------------ Set up database -------------------
 const pool = require("./database");
+
+// -------------------------------------------------------
 
 api.use(cors());
 api.use(express.json({ limit: "50mb" }));
@@ -49,12 +53,17 @@ api.get("/", async (req, res) => {
 api.get("/api/start", async (req, res) => {
     const val = await Promise.resolve("Started streaming weather data");
     if (running != true) {
-        sendDataID = setInterval(sendData, 259);
+        sendDataID = setInterval(sendData, 1000);
         running = true;
     }
 
     res.send(val);
 });
+
+api.get("/api/viewLogs", async (req, res) => {
+    const all_logs = await pool.query("SELECT * FROM data_log");
+    res.json(all_logs.rows);
+})
 
 api.get("/api/stop", async (req, res) => {
     const val = await Promise.resolve("Stopped streaming weather data");
